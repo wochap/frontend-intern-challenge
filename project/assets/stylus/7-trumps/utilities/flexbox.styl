@@ -1,0 +1,67 @@
+//  Flexbox
+//  ==========================================================================
+//
+// 	doc: http://www.basscss.com/#basscss-flexbox
+
+
+//  Parent Element Utilities
+//  --------------------------------------------------------------------------
+
+utility('flex', @(){
+  display: flex
+
+  for $key, $value in $breakpoints {
+    +desde($key) {
+      suffix($key, @(){
+        display: flex
+      })
+    }
+  }
+})
+
+utility('flex-column', @(){ flex-direction: column })
+utility('flex-row', @(){ flex-direction: row })
+utility('flex-wrap', @(){ flex-wrap: wrap })
+
+utility('items-baseline', @(){ align-items: baseline })
+utility('items-center', @(){ align-items: center })
+utility('items-end', @(){ align-items: flex-end })
+utility('items-start', @(){ align-items: flex-start })
+utility('items-stretch', @(){ align-items: stretch })
+
+utility('justify-around', @(){ justify-content: space-around })
+utility('justify-between', @(){ justify-content: space-between })
+utility('justify-center', @(){ justify-content: center })
+utility('justify-end', @(){ justify-content: flex-end })
+utility('justify-start', @(){ justify-content: flex-start })
+
+utility('content-around', @(){ align-content: space-around })
+utility('content-between', @(){ align-content: space-between })
+utility('content-center', @(){ align-content: center })
+utility('content-end', @(){ align-content: flex-end })
+utility('content-start', @(){ align-content: flex-start })
+utility('content-stretch', @(){ align-content: stretch })
+
+
+//  Child Element Utilities
+//  --------------------------------------------------------------------------
+
+utility('align-self-baseline', @(){ align-self: baseline })
+utility('align-self-center', @(){ align-self: center })
+utility('align-self-end', @(){ align-self: flex-end })
+utility('align-self-start', @(){ align-self: flex-start })
+utility('align-self-stretch', @(){ align-self: stretch })
+
+utility('flex-auto', @(){
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+})
+utility('flex-grow', @(){ flex: 1 0 auto })
+utility('flex-none', @(){ flex: none })
+
+utility('order-0', @(){ order: 0 })
+utility('order-1', @(){ order: 1 })
+utility('order-2', @(){ order: 2 })
+utility('order-3', @(){ order: 3 })
+utility('order-last', @(){ order: 99999 })

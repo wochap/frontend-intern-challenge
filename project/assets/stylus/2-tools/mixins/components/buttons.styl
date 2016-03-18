@@ -1,0 +1,21 @@
+//  Button
+//  ==========================================================================
+
+
+$button-line-height ?= 1.125em
+$button-padding-y   ?= 0.5em
+$button-padding-x   ?= 1em
+
+button($padding-y = $button-padding-y, $padding-x = $button-padding-x, $line-height = $button-line-height)
+  appearance: none
+  background: $transparent
+  border-radius: $base-border-radius
+  border: 0
+  color: inherit
+  cursor: pointer
+  display: inline-block
+  line-height: $line-height
+  outline: 0
+  padding: $padding-y $padding-x
+  text-decoration: none
+  user-select: none

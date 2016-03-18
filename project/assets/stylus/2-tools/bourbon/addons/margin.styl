@@ -1,0 +1,11 @@
+// Provides a quick method for targeting `margin` on specific sides of a box. Use a `false` value to “skip” a side.
+//
+// @param {Arglist} $vals
+//   List of arguments
+//
+// @require {mixin} directional-property
+//
+// @output `margin`
+
+margin($vals...)
+  directional-property('margin', false, $vals)

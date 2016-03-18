@@ -1,0 +1,31 @@
+//  Accessibility
+//  ==========================================================================
+
+
+// Hide for both screenreaders and browsers
+// http://css-discuss.incutio.com/wiki/Screenreader_Visibility
+disappear()
+  display: none !important
+  visibility: hidden
+
+// Hide only visually, but have it available for screenreaders
+// http://webaim.org/techniques/css/invisiblecontent/
+hidden()
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+  &.focusable:active
+  &.focusable:focus
+    clear: both;
+    display: table;
+    position: static;
+
+// Hide visually and from screenreaders, but maintain layout
+invisible()
+  visibility: hidden

@@ -1,0 +1,38 @@
+//  Type scale
+//  ==========================================================================
+//
+//  doc: http://www.basscss.com/#basscss-type-scale
+
+
+//  Headings
+//  --------------------------------------------------------------------------
+
+utility('h6', 'h5', 'h4', 'h3', 'h2', 'h1', 'h0', 'h00', @(){
+  color: $heading-color
+  display block
+  font-family: $heading-font-family
+  font-weight: $heading-font-weight
+  line-height: $heading-line-height
+  margin: 0 0 1em
+})
+
+utility('h00', @(){ font-size: $fz-h00 })
+utility('h0', @(){ font-size: $fz-h0 })
+utility('h1', @(){ font-size: $fz-h1 })
+utility('h2', @(){ font-size: $fz-h2 })
+utility('h3', @(){ font-size: $fz-h3 })
+utility('h4', @(){ font-size: $fz-h4 })
+utility('h5', @(){ font-size: $fz-h5 })
+utility('h6', @(){ font-size: $fz-h6 })
+
+
+//  Font sizes
+//  --------------------------------------------------------------------------
+
+utility('fz-inherit', @(){ font-size: inherit })
+
+for $fz, $value in $font-sizes {
+  utility('fz-' + $fz, @(){
+    font-size: $value
+  })
+}

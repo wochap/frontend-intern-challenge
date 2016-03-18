@@ -1,0 +1,62 @@
+//  Media queries
+//  ==========================================================================
+//
+// source: https://github.com/escueladigital/ED-GRID/blob/master/componentes/_mixins.scss
+
+
+hasta($size)
+  if $breakpoints[$size]
+    @media screen and (max-width: $breakpoints[$size] - 1)
+      {block}
+  else
+    @media screen and (max-width: $size)
+      {block}
+to = hasta
+
+desde($size)
+  if $breakpoints[$size]
+    @media screen and (min-width: $breakpoints[$size])
+      {block}
+  else
+    @media screen and (min-width: $size)
+      {block}
+from = desde
+
+desde-hasta($desde, $hasta)
+  if $breakpoints[$desde] && $breakpoints[$hasta]
+    @media screen and (min-width: $breakpoints[$desde]) and (max-width: $breakpoints[$hasta] - 1)
+      {block}
+  else if $breakpoints[$desde] && !$breakpoints[$hasta]
+    @media screen and (min-width: $breakpoints[$desde]) and (max-width: $hasta)
+      {block}
+  else if !$breakpoints[$desde] && $breakpoints[$hasta]
+    @media screen and (min-width: $desde) and (max-width: $breakpoints[$hasta] - 1)
+      {block}
+  else
+    @media screen and (min-width: $desde) and (max-width: $hasta)
+      {block}
+from-to = desde-hasta
+
+
+//  Debug
+//  --------------------------------------------------------------------------
+
+media-queries-debug()
+  body
+    &::after
+    &::before
+      content: 'none'
+      font-size: 10rem
+      left: 50%
+      opacity: .25
+      pointer-events none
+      position: fixed
+      top: 50%
+      transform: translate3d(-50%, -50%, 0)
+      z-index: 9999
+
+    for $key, $value in $breakpoints
+      +desde($key)
+        &::after
+        &::before
+          content: $key

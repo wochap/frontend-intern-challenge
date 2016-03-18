@@ -1,0 +1,120 @@
+//  Cols
+//  ==========================================================================
+//  grid class system
+//
+//  inspiration: http://bulma.io/documentation/grid/
+//  inspiration: http://flexboxgrid.com/
+
+
+//  Variables
+//  --------------------------------------------------------------------------
+
+$cols-gutter   = 1rem
+$cols-debug-bg = #FC6E51
+$cols-number   = 12
+
+
+//  Mixins
+//  --------------------------------------------------------------------------
+
+make-col($col = false, $printAll = true)
+  if $printAll
+    flex: 1 1 0
+    min-height: 0
+    min-width: 0
+    padding: ($cols-gutter / 2)
+  if $col
+    flex none
+    width: ($col / $cols-number) * 100%
+
+cols-debug()
+  & > *
+    position relative
+
+    &::after
+      background: rgba($cols-debug-bg, 0.25)
+      content: ''
+      height: 100%
+      position: absolute
+      right: 0
+      top: 0
+      width: 100%
+      z-index: -1
+
+
+//  Grid
+//  --------------------------------------------------------------------------
+
+object('cols', @(){
+  align-items: flex-start
+  display: flex
+  flex-direction: row
+  flex-wrap wrap
+  margin: ($cols-gutter / -2)
+  width: auto
+
+  & + & {
+    margin-top: ($cols-gutter / 2)
+  }
+
+  & + .o-cols--gapless {
+    margin-top: $cols-gutter
+  }
+
+  element('col', true, @(){
+    make-col()
+
+    for $col in (1..$cols-number) {
+      modifier($col, @(){
+        make-col($col, false)
+      })
+    }
+
+    for $size, $value in $breakpoints {
+      +desde($size) {
+        for $col in (1..$cols-number) {
+          modifier($col, @(){
+              suffix($size, @(){
+                make-col($col, false)
+              })
+          })
+        }
+      }
+    }
+  })
+
+  modifier('gapless', @(){
+    margin: 0
+
+    & + & {
+      margin-top: 0
+    }
+
+    element('col', true, @(){
+      padding: 0
+    })
+  })
+
+  modifier('gapminor', @(){
+    margin: (($cols-gutter / 2) / -2)
+
+    & + & {
+      margin-top: (($cols-gutter / 2) / 2)
+    }
+
+    & + .o-cols {
+      margin-top: (($cols-gutter / 2) / 2)
+    }
+
+    element('col', true, @(){
+      padding: (($cols-gutter / 2) / 2)
+    })
+  })
+})
+
+/*
+TO DO
+half // 50%
+third // 33.3333%
+quarter // 25%
+*/

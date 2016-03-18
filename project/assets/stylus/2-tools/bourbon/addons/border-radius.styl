@@ -1,0 +1,22 @@
+// Provides a quick method for targeting `border-radius` on both corners on the side of a box.
+//
+// @param {Number} $radii
+//   List of arguments
+//
+// @output `border-radius`
+
+border-top-radius($radii)
+  border-top-left-radius: $radii
+  border-top-right-radius: $radii
+
+border-right-radius($radii)
+  border-bottom-right-radius: $radii
+  border-top-right-radius: $radii
+
+border-bottom-radius($radii)
+  border-bottom-left-radius: $radii
+  border-bottom-right-radius: $radii
+
+border-left-radius($radii)
+  border-bottom-left-radius: $radii
+  border-top-left-radius: $radii

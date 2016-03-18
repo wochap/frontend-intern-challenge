@@ -1,0 +1,11 @@
+// Provides a quick method for targeting `border-color` on specific sides of a box. Use a `false` value to “skip” a side.
+//
+// @param {Arglist} $vals
+//   List of arguments
+//
+// @require {mixin} directional-property
+//
+// @output `border-color`
+
+border-color($vals...)
+  directional-property('border', 'color', $vals)

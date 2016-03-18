@@ -1,0 +1,12 @@
+// Provides a quick method for targeting `padding` on specific sides of a box. Use a `false` value to “skip” a side.
+//
+// @param {Arglist} $vals
+//   List of arguments
+//
+//
+// @require {mixin} directional-property
+//
+// @output `padding`
+
+padding($vals...)
+  directional-property('padding', false, $vals)

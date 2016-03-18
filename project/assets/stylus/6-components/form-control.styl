@@ -1,0 +1,29 @@
+//  Form control
+//  ==========================================================================
+
+
+component('form-control', @(){
+  background-color: $base-background-color
+  border-radius: $base-border-radius
+  border: $base-border
+  box-shadow: $form-box-shadow
+  padding: .5em
+  transition: border-color $base-duration $base-timing
+  width: 100%
+
+  &:hover {
+    border-color: shade($base-border-color, 20%)
+  }
+
+  &:focus {
+    border-color: $color-primary
+    box-shadow: $form-box-shadow-focus
+    outline: none
+  }
+
+  &:disabled {
+    background-color: shade($base-background-color, 10%)
+    border-color: shade($base-background-color, 15%)
+    cursor: not-allowed
+  }
+})

@@ -1,0 +1,15 @@
+// Sets the `width` and `height` of the element in one statement.
+//
+// @argument {number (with unit) | string} $width
+//
+// @argument {number (with unit) | string} $height [$width]
+//
+// @require {function} _is-size
+
+size($vals...)
+  if length($vals) == 1
+      height: $vals[0]
+      width: $vals[0]
+  else
+    height: $vals[1] if $vals[1] != false
+    width: $vals[0] if $vals[0] != false

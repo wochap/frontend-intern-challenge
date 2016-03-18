@@ -1,0 +1,46 @@
+//  Responsive States
+//  ==========================================================================
+//
+// 	doc: http://www.basscss.com/docs/responsive-states/
+
+
+//  Show
+//  --------------------------------------------------------------------------
+
+utility('show', @(){
+  suffix('xs', 'sm', 'md', 'lg', 'xl', @(){
+    display: none !important
+  })
+
+  for $key, $value in $breakpoints {
+    +desde($key) {
+      suffix($key, @(){
+        display: block !important
+      })
+    }
+  }
+})
+
+
+//  Hide
+//  --------------------------------------------------------------------------
+
+utility('hide', @(){
+  for $key, $value in $breakpoints {
+    +desde($key) {
+      suffix($key, @(){
+        display: none !important
+      })
+    }
+  }
+})
+
+utility('display-none', @(){ display: none !important })
+
+utility('hide', @(){
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+})

@@ -1,0 +1,35 @@
+//  Custom border
+//  ==========================================================================
+
+
+custom-border-right($border-height = 1.1em, $border-width = 1px, $gutter = 1em, $border-color = currentColor)
+  margin-right: $gutter
+  padding-right: $gutter
+  position: relative
+
+  &::after
+    background-color: $border-color
+    content: ''
+    display: block
+    height: $border-height
+    left: 100%
+    position: absolute
+    top: 50%
+    transform: translate3d(0, -50%, 0)
+    width: $border-width
+
+custom-border-bottom($border-height = 1px, $border-width = 90%, $gutter = 1em, $border-color = currentColor)
+  margin-bottom: $gutter
+  padding-bottom: $gutter
+  position: relative
+
+  &::after
+    background-color: $border-color
+    content: ''
+    display: block
+    height: $border-height
+    top: 100%
+    position: absolute
+    left: 50%
+    transform: translate3d(-50%, 0, 0)
+    width: $border-width

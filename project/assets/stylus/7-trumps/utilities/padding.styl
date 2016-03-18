@@ -1,0 +1,27 @@
+//  Padding
+//  ==========================================================================
+//
+//  doc: http://www.basscss.com/#basscss-padding
+
+
+utility('p0', @(){ padding: 0 })
+utility('pt0', @(){ padding-top: 0 })
+utility('pr0', @(){ padding-right: 0 })
+utility('pb0', @(){ padding-bottom: 0 })
+utility('pl0', @(){ padding-left: 0 })
+
+for $space, $value in $spaces
+  utility('p' + $space, @(){ padding: $value })
+  utility('pt' + $space, @(){ padding-top: $value })
+  utility('pr' + $space, @(){ padding-right: $value })
+  utility('pb' + $space, @(){ padding-bottom: $value })
+  utility('pl' + $space, @(){ padding-left: $value })
+
+  utility('py' + $space, @(){
+    padding-top:    $value;
+    padding-bottom: $value;
+  })
+  utility('px' + $space, @(){
+    padding-left:  $value;
+    padding-right: $value;
+  })

@@ -1,0 +1,72 @@
+body
+  color: $base-font-color
+  font-family: $base-font-family
+  font-size: $base-font-size
+  line-height: $base-line-height
+
+h1
+h2
+h3
+h4
+h5
+h6
+  color: $heading-color
+  font-family: $heading-font-family
+  font-weight: $heading-font-weight
+  line-height: $heading-line-height
+  margin: 0 0 1em
+
+h1 { font-size: $fz-h1 }
+h2 { font-size: $fz-h2 }
+h3 { font-size: $fz-h3 }
+h4 { font-size: $fz-h4 }
+h5 { font-size: $fz-h5 }
+h6 { font-size: $fz-h6 }
+
+p
+  margin: $paragraph-margin-top 0 $paragraph-margin-top
+
+  & + p
+    margin-top: $paragraph-margin-bottom
+
+a
+  color: inherit
+  text-decoration: none
+  transition: color $base-duration $base-timing
+
+a[href]:not([class])
+  color: $link-color
+
+  &:active
+  &:focus
+  &:hover
+    color: $link-color-hover
+
+hr
+  border-bottom: $base-border
+  box-sizing: border-box
+  margin: $space-3 0
+
+img
+picture
+  margin: 0
+  max-width: 100%
+
+pre
+code
+  background: $light-grey
+  color: $black
+  font-size: 1rem
+  word-break: break-all
+  word-wrap: break-word
+
+pre
+  display: block
+  margin: $space-3 0
+  padding: 1em
+
+blockquote
+  border-left: .2rem solid $color-primary
+  font-style: italic
+  margin: $space-3 0
+  padding 0 2em

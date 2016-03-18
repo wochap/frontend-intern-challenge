@@ -1,0 +1,157 @@
+//  Bemit
+//  ==========================================================================
+//  require use brackets
+//
+// source: https://github.com/danielguillan/bem-constructor
+// block mixin bug: https://github.com/stylus/stylus/issues/1703#issuecomment-74345755
+
+
+//  Component
+//  --------------------------------------------------------------------------
+
+component($name, $block)
+  {'.' + $bemit-component-prefix + '-' + $name}
+    $block()
+
+
+//  Object
+//  --------------------------------------------------------------------------
+
+object($name, $block)
+  {'.' + $bemit-object-prefix + '-' + $name}
+    $block()
+
+
+//  Utility
+//  --------------------------------------------------------------------------
+
+_utility()
+  $list = ''
+  $reference = '.'
+  for $name in arguments
+    $list = ($list + $reference + $bemit-utility-prefix + '-' + $name + '\n')
+  return $list
+
+utility()
+  $arguments = arguments
+  $block = pop($arguments)
+  {_utility($arguments)}
+    $block()
+
+
+//  Scope
+//  --------------------------------------------------------------------------
+
+scope($name, $block)
+  {'.' + $bemit-scope-prefix + '-' + $name}
+    $block()
+
+
+//  Element
+//  --------------------------------------------------------------------------
+
+_element()
+  $list = '' // selectors list
+  $reference = '&'
+  $selector = '' // >
+  if typeof(last(arguments)) == 'boolean' &&  last(arguments) == true
+    _void = pop(arguments)
+    $selector = '> '
+    $reference = '& ' + $selector + '&'
+  if match('.' + $bemit-state-prefix + '-', selector('&')) || match($bemit-modifier-separator, selector('&')) || match($bemit-suffix-prefix, selector('&'))
+    // call inner state || modifier || suffix mixin
+    $reference = '& ' + $selector + '^[-1]'
+  for $name in arguments
+    $list = ($list + $reference + $bemit-element-separator + $name + '\n')
+  return $list
+
+element()
+  $arguments = arguments // names
+  $block = pop($arguments) // anonymous function
+  {_element($arguments)}
+    $block()
+
+
+//  Modifier
+//  --------------------------------------------------------------------------
+
+_modifier()
+  $list = ''
+  $reference = '&'
+  if match('.' + $bemit-state-prefix + '-', selector('&')) || match($bemit-suffix-prefix, selector('&'))
+    $reference = '& ' + '^[-1]'
+  for $name in arguments
+    $list = ($list + $reference + $bemit-modifier-separator + $name + '\n')
+  return $list
+
+modifier()
+  $arguments = arguments
+  $block = pop($arguments)
+  {_modifier($arguments)}
+    $block()
+
+
+//  State
+//  --------------------------------------------------------------------------
+
+_state()
+  $list = ''
+  $reference = '&'
+  if match($bemit-modifier-separator, selector('&')) || match($bemit-suffix-prefix, selector('&'))
+    $reference = '& ' + '^[-1]'
+  for $name in arguments
+    $list = ($list + $reference + '.' + $bemit-state-prefix + '-' + $name + '\n')
+  return $list
+
+state()
+  $arguments = arguments
+  $block = pop($arguments)
+  {_state($arguments)}
+    $block()
+
+
+//  Suffix
+//  --------------------------------------------------------------------------
+
+_suffix()
+  $list = ''
+  $reference = '&'
+  // if match('.' + $bemit-state-prefix + '-', selector('&')) || match($bemit-modifier-separator, selector('&'))
+  //   $reference = '& ' + '^[-1]'
+  for $name in arguments
+    $list = ($list + $reference + $bemit-suffix-prefix + $name + '\n')
+  return $list
+
+suffix()
+  $arguments = arguments
+  $block = pop($arguments)
+  {_suffix($arguments)}
+    $block()
+
+
+//  Debug
+//  --------------------------------------------------------------------------
+
+bemit-debug()
+  // elements
+  [class*={'"' + $bemit-element-separator + '"'}]
+    outline: $bemit-debug-styles['elements']
+
+  // modifiers
+  [class*={'"' + $bemit-modifier-separator + '"'}]
+    outline: $bemit-debug-styles['modifiers']
+
+  // objects
+  [class^={'"' + $bemit-object-prefix + '-"'}]
+  [class*={'" ' + $bemit-object-prefix + '"'}]
+    outline: $bemit-debug-styles['objects']
+
+  // components
+  [class^={'"' + $bemit-component-prefix + '-"'}]
+  [class*={'" ' + $bemit-component-prefix + '"'}]
+    outline: $bemit-debug-styles['components']
+
+  // utilities
+  [class^={'"' + $bemit-utility-prefix + '-"'}]
+  [class*={'" ' + $bemit-utility-prefix + '"'}]
+    outline: $bemit-debug-styles['utilities']

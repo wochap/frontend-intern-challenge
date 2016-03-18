@@ -1,0 +1,30 @@
+//  Ribbon
+//  ==========================================================================
+
+
+ribbon($background, $padding = 1em)
+  background-color: $background
+  display: inline-block
+  padding: $padding
+  position: relative
+
+  &::before,
+  &::after
+    content: ''
+    display: block
+    height: 50%
+    position: absolute
+    right: 100%
+    width: 20%
+
+  &::before
+    background-image: linear-gradient(
+      to top right, transparent 50%, $background 50%
+    )
+    top: 0
+
+  &::after
+    background-image: linear-gradient(
+      to bottom right, transparent 50%, $background 50%
+    )
+    bottom: 0
