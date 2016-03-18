@@ -1,0 +1,80 @@
+//  Home
+//  ==========================================================================
+
+$header-height = 55px
+
+//  Front
+//  --------------------------------------------------------------------------
+
+.front
+  @extend $background-center
+  flex-row()
+  flex-center()
+  color $white
+  height 'calc(100vh - %s)' % $header-height
+  min-height 480px
+  text-align center
+
+  +hasta('md')
+    max-height: 480px
+
+.front__wrapper
+  center(600px)
+  padding 0 1rem
+
+.front__title
+  font-size: 2.6rem
+  font-weight $fw-bold
+  margin-bottom .3em
+
+.front__description
+  font-size: 1.1rem
+  opacity .9
+  margin-bottom 2.9em
+
+
+//  Top
+//  ==========================================================================
+
+.top
+  center(450px)
+  padding 3rem 1rem
+  position relative
+  text-align center
+
+  &::after
+    triangle(down, 2.5rem, $white)
+    content: ''
+    position absolute 100% auto auto 50%
+    transform: translate3d(-50%, 0, 0)
+
+    +hasta('md')
+      triangle(down, 1rem, $white)
+
+.top__list
+  list-reset()
+
+.top__item
+  flex-row()
+  align-items: center;
+  font-size: 1.1rem
+  justify-content: space-between;
+
+  &:not(:last-child)
+    custom-border-bottom(1px, 100%, 1.15rem, $color-tertiary)
+
+
+//  Hits
+//  --------------------------------------------------------------------------
+
+.hits
+  background-color $color-tertiary
+  padding 4.25rem 1rem 3rem
+  text-align center
+
+.hits__count
+  background-color: $white
+  border-radius: 3px
+  border: 1px solid rgba($color-secondary, 0.4)
+  display inline-block
+  padding .25em

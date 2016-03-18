@@ -1,0 +1,20 @@
+//  Header
+//  ==========================================================================
+
+
+component('header', @(){
+  flex-row()
+  flex-center()
+  height: 55px
+  text-align center
+
+  element('title', @(){
+    hidden()
+  })
+
+  element('logo', @(){
+    display inline-block
+    height 30px
+    vertical-align middle
+  })
+})

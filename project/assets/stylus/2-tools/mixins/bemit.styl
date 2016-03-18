@@ -6,6 +6,18 @@
 // block mixin bug: https://github.com/stylus/stylus/issues/1703#issuecomment-74345755
 
 
+//  Functions
+//  --------------------------------------------------------------------------
+
+join(delim, args)
+  buf = ''
+  for arg, index in args
+    if index
+      buf += delim + arg
+    else
+      buf += arg
+
+
 //  Component
 //  --------------------------------------------------------------------------
 
@@ -50,21 +62,35 @@ scope($name, $block)
 //  Element
 //  --------------------------------------------------------------------------
 
-_element()
-  $list = '' // selectors list
+// @api private
+// @param $elements - list of elements
+_element($elements)
+  $selectors = ()
   $reference = '&'
   $selector = '' // >
-  if typeof(last(arguments)) == 'boolean' &&  last(arguments) == true
-    _void = pop(arguments)
+
+  // update $selector with '>'
+  if typeof(last($elements)) == 'boolean' &&  last($elements) == true
+    _void = pop($elements)
     $selector = '> '
     $reference = '& ' + $selector + '&'
-  if match('.' + $bemit-state-prefix + '-', selector('&')) || match($bemit-modifier-separator, selector('&')) || match($bemit-suffix-prefix, selector('&'))
-    // call inner state || modifier || suffix mixin
-    $reference = '& ' + $selector + '^[-1]'
-  for $name in arguments
-    $list = ($list + $reference + $bemit-element-separator + $name + '\n')
-  return $list
 
+  // update $reference with partial reference -1
+  if match('.' + $bemit-state-prefix + '-', selector('&')) || match($bemit-modifier-separator, selector('&')) || match($bemit-suffix-prefix, selector('&'))
+    $reference = '& ' + $selector + '^[-1]'
+
+  for $name in $elements
+    push($selectors, $reference + $bemit-element-separator + $name)
+
+  return join(', ', $selectors)
+
+// @api public
+//
+// usage:
+//
+// element('foo', 'bar', @(){
+//   opacity: 0
+// })
 element()
   $arguments = arguments // names
   $block = pop($arguments) // anonymous function

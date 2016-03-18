@@ -1,0 +1,31 @@
+//  Footer
+//  ==========================================================================
+
+
+component('footer', @(){
+  wrapper()
+  flex-row()
+  justify-content: space-between
+  align-items center
+  padding: 1rem
+
+  element('title', @(){
+    font-size $fz-h3
+  })
+
+  element('social-list', @(){
+    list-reset()
+  })
+  element('social-item', @(){
+    display inline-block
+    vertical-align middle
+
+    &:not(:last-child) {
+      margin-right 1rem
+    }
+
+    img {
+      display block
+    }
+  })
+})

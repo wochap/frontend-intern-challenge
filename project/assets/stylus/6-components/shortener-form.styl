@@ -1,0 +1,86 @@
+//  Shortener form
+//  ==========================================================================
+
+
+$sf-color = #FE6D13
+$sf-breakpoint = 'md'
+
+component('shortener-form', @(){
+  font-size: 1.25rem
+
+  +hasta($sf-breakpoint) {
+    flex-direction: column
+    align-items: center;
+  }
+
+  element('text', @(){
+    flex-row()
+    border-bottom: 3px solid $sf-color
+    height: 48px
+    position relative
+
+    +hasta($sf-breakpoint) {
+      flex: none
+      margin-bottom 1rem
+      width 100%
+    }
+
+    +desde($sf-breakpoint) {
+      margin-right .5rem
+    }
+  })
+
+  element('url', @(){
+    flex-auto()
+    input-reset()
+    transition color $base-duration $base-timing
+
+    &
+    &::placeholder {
+      color: $sf-color
+    }
+  })
+
+  element('close-button', @(){
+    opacity: 0
+    padding 0
+    position absolute 50% .25rem auto auto
+    transform: translate3d(0, -50%, 0)
+    transition opacity $base-duration $base-timing
+    visibility: hidden;
+  })
+
+  element('submit-button', @(){
+    background-color $sf-color
+    border-radius 0
+    flex: none
+    font-weight: $fw-s-bold
+    padding .65em .6em
+    text-transform: uppercase;
+    transition color $base-duration $base-timing
+    width 125px
+  })
+
+  state('submitting', @(){
+    element('submit-button', 'url', @(){
+      color: transparent
+    })
+  })
+
+  state('submitted', @(){
+    element('url', @(){
+      color: $white
+      font-weight: $fw-s-bold
+      pointer-events: none;
+    })
+
+    element('close-button', @(){
+      opacity: 1
+      visibility: visible;
+    })
+
+    element('submit-button', @(){
+      color: $white
+    })
+  })
+})
