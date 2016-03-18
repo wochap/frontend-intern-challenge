@@ -1,11 +1,10 @@
 block vars
-  - var $assets = 'http://localhost:3000'
   - var $description = ''
   - var $scope = ''
-  - var $title = 'Base Project'
+  - var $title = ''
 
 doctype html
-html.no-js(lang='es')
+html.no-js(lang='pt-BR')
   head
     meta(charset='utf-8')
     meta(http-equiv='x-ua-compatible', content='ie=edge')
@@ -18,12 +17,17 @@ html.no-js(lang='es')
     meta(name='apple-mobile-web-app-capable', content='yes')
     
     block top
-      link(rel='stylesheet', href='#{$assets}/main.css')
+      link(rel='stylesheet', href='/main.css')
   body(class='#{$scope}')
+    include ./header.jade
     // content
     block content
       h1 Work !
     // /content
-
+    include ./footer.jade
+    
     block bottom
-      script(src='#{$assets}/main.js')
+      script(src='/main.js')
+      
+link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:400,500')
+link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700')

@@ -1,8 +1,30 @@
-extends ./_layout.jade
+extends /_partials/layout.jade
 
 block vars
-  - $title = 'sdsdsdsds'
+  - $title = 'Chaordic'
+  - $scope = 's-home'
 
 block content
-  - $title = 'sdsds'
-  h1 My Articldsesdsddsadds  
+  section.o-center-content.front
+    div.front__wrapper
+      h2 Encurte seus links.
+      p Links são longos. Encurte os links que você deseja compartilhar, e acompanhe enquanto viajam através da internet.
+      form#shortenerForm.c-shortener-form
+        div.c-shortener-form__text
+          input.c-shortener-form__url(type='text', name='url', placeholder='Cole o seu link aqui')
+          button.c-shortener-form__close-button(type='button') X
+        button.c-shortener-form__submit-button(type='submit') Encurtar
+  
+  section.o-center-content.top
+    h2 Top 5
+    ul.top__list
+      li.top__item
+        a.c-shortener-link(href='#!')
+        span.u-secondary 7.919
+  
+  section.o-center-content.hits
+    h2.u-primary Hits
+    p.hits__count 35.713.571
+    p.u-secondary Cliques em links
+        
+        
