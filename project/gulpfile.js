@@ -45,7 +45,7 @@ elixir(function (mix) {
 /* [COMPILE] js files */
 elixir(function (mix) {
   /* landing */
-  mix.scripts([
+  mix.browserify([
     'index.js'
   ], 'public/main.js')
 })

@@ -11,17 +11,13 @@ block content
       p.front__description Links são longos. Encurte os links que você deseja compartilhar, e acompanhe enquanto viajam através da internet.
       form#shortenerForm.o-group.c-shortener-form
         div.o-group__fit.c-shortener-form__text
-          input.c-shortener-form__url(type='text', name='url', placeholder='Cole o seu link aqui')
+          input.c-shortener-form__url(type='text', name='url', placeholder='Cole o seu link aqui', required)
           button.c-shortener-form__close-button(type='button', title='clear url') ×
         button.c-shortener-form__submit-button(type='submit', title='submit') Encurtar
   
   section.top
     h2.u-fz-h0.u-uppercase.u-primary Top 5
-    ul.top__list
-      each val in [1, 2, 3, 4, 5]
-        li.top__item
-          a.c-shortener-link(href='#!') http://chrc.dc/xyzxyz
-          span.u-secondary 7.919
+    ul#topList.top__list
   
   section.hits
     h2.u-fz-h0.u-uppercase.u-primary Hits
