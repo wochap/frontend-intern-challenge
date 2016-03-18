@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  },
+  "dependencies": {
+    "laravel-elixir": "^4.0.0",
+    "laravel-elixir-stylus": "^1.0.1",
+    "poststylus": "^0.2.2",
+    "wo-laravel-elixir-jade": "^0.1.0",
+    "axis": "^0.5.2",
+    "lost": "^6.7.2",
+    "modernizr-stylus": "0.0.2",
+    "postcss-position": "^0.4.0"
+  }
+}

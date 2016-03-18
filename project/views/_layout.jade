@@ -1,0 +1,29 @@
+block vars
+  - var $assets = 'http://localhost:3000'
+  - var $description = ''
+  - var $scope = ''
+  - var $title = 'Base Project'
+
+doctype html
+html.no-js(lang='es')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
+
+    title #{$title}
+    meta(name='description', content='#{$description}')
+
+    //- Mobile Metas
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='apple-mobile-web-app-capable', content='yes')
+    
+    block top
+      link(rel='stylesheet', href='#{$assets}/main.css')
+  body(class='#{$scope}')
+    // content
+    block content
+      h1 Work !
+    // /content
+
+    block bottom
+      script(src='#{$assets}/main.js')
