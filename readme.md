@@ -1,6 +1,6 @@
 # Desafio estrategico: HTML/CSS/JS
 
-El proposito del desafio consiste en una **landing page** simulando un acortador de links, donde probara sus habilidades y calidad de codigo como desarrollador front-end, convirtiendo un diseño en un prototipo funcional.
+El proposito del desafio consiste en un **landing page** simulando un acortador de enlaces, que pondra a prueba las habilidades y la calidad de código de un desarrollador front-end, convirtiendo un diseño en un prototipo funcional.
 
 ### Instrucciones
 
