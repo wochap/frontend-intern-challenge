@@ -4,24 +4,24 @@ El proposito del desafio consiste en un **landing page** simulando un acortador 
 
 ### Instrucciones
 
-- **Fork** este repositorio y crea una rama con tu nombre (ejemplo: `gean-carlos`);
+- Da **Fork** a este repositorio y crea una rama con tu nombre (ejemplo: `gean-carlos`);
 - Su objetivo principal es convertir este [mockup](./Layout/Preview.jpg) en un prototipo funcional HTML/CSS/JS;
 - En tu proyecto, crea un directorio llamado ` project` . Todos los archivos que cree deben estar dentro de esta carpeta ;
-- Una vez que completes el desafio , abre un **pull request** con tus cambios.
+- Una vez que complete el desafio , abra un **pull request** con sus cambios.
 
 
-### Layout
+### Diseño
 
 - Dentro de la carpeta [Layout](./Layout) hay un archivo [psd](./Layout/Layout.psd) y [jpg](./Layout/Preview.jpg), uselos como referencia para desarrollar el prototipo;
-- Utiliza los **colores** definidas en [guideline](./Layout/Guideline-color.jpg);
+- Utiliza los **colores** definidos en [guideline](./Layout/Guideline-color.jpg);
 - Las **fuentes** utilizadas son: [Roboto](https://www.google.com/fonts/specimen/Roboto) y [Roboto Slab](https://www.google.com/fonts/specimen/Roboto+Slab);
-- Si es necesario, la carpeta [Assets](./Assets) ya posee las imagenes exportadas.
+- Si es necesario, la carpeta [Assets](./Assets) posee las imagenes exportadas.
 
 ### Consejos
 
-- Su HTML devera ser lo mas semantico posible (hacer buen uso de las etiquetas HTML5);
+- Su HTML debera ser lo mas semantico posible (haz un buen uso de las etiquetas HTML5);
 - Su CSS debera estar bien estructurado en un archivo separado;
-- En JavaScript, evita contaminar el ambito global. Tambien se evaluara el uso de librerias.
+- En JavaScript, evitar contaminar el ambito global. Tambien se evaluara el uso de librerias.
 
 
 ### Diferenciales
@@ -35,6 +35,6 @@ El proposito del desafio consiste en un **landing page** simulando un acortador 
 
 ---
 
-En caso de dudas, [habra un issue](https://github.com/chaordic/frontend-intern-challenge/issues).
+En caso de dudas, [habra un issue](https://github.com/wochap/frontend-intern-challenge/issues).
 
 **Buena suerte =]**
