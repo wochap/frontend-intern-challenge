@@ -24,7 +24,7 @@ El proposito del desafio consiste en un **landing page** simulando un acortador 
 - En JavaScript, evitar contaminar el ambito global. Tambien se evaluara el uso de librerias.
 
 
-### Diferenciales
+### Opcional
 
 - Una buena documentacion;
 - Uso de pre-procesadores CSS ([Sass](http://sass-lang.com), [Less](http://lesscss.org), [Stylus](http://stylus-lang.com));
