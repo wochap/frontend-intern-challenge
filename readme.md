@@ -35,6 +35,6 @@ El proposito del desafio consiste en un **landing page** simulando un acortador 
 
 ---
 
-En caso de dudas, [habra un issue](https://github.com/wochap/frontend-intern-challenge/issues).
+En caso de dudas, [abra un issue](https://github.com/wochap/frontend-intern-challenge/issues).
 
 **Buena suerte =]**
