@@ -6,7 +6,7 @@ El proposito del desafio consiste en un **landing page** simulando un acortador 
 
 - Da **Fork** a este repositorio y crea una rama con tu nombre (ejemplo: `gean-carlos`);
 - Su objetivo principal es convertir este [mockup](./Layout/Preview.jpg) en un prototipo funcional HTML/CSS/JS;
-- En tu proyecto, crea un directorio llamado ` project` . Todos los archivos que cree deben estar dentro de esta carpeta ;
+- En su proyecto, crear un directorio llamado ` project` . Todos los archivos que cree deben estar dentro de esta carpeta;
 - Una vez que complete el desafio , abra un **pull request** con sus cambios.
 
 
